@@ -1,7 +1,7 @@
 import css from "./contactForm.module.css";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contactsSlice";
+import { addContact } from "../../redux/contactsOps";
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
@@ -10,13 +10,13 @@ export const ContactForm = () => {
 
   const handleSubmit = (event) => {
       event.preventDefault();
-    dispatch(addContact({ name, number }));
+    dispatch(addContact({name, number}));
     setName("");
     setNumber("");
   };
 
   return (
-    <form onSubmit={handleSubmit} className={css.container}>
+    <form  className={css.container} onSubmit={handleSubmit}>
       <div className={css.form}>
         <label>Name:</label>
         <input
